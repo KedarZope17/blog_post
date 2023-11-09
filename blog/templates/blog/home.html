@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title></title>
+</head>
+<body>
+    {% for post in Posts %}
+        <h1> {{ post.Title}}</h1>
+        <p> By {{post.Author}} on {{post.Date_posted}}</p>
+        <p>{{ post.Content }}</p>
+    {%endfor%}
+</body>
+</html>
