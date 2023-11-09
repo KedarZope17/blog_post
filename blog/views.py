@@ -30,6 +30,9 @@ posts = [
     }
 ]
 
+def landing_page(request):
+    return render(request, 'blog/landing_page.html', {'Title': 'Welcome'})
+
 def home(request):
     context = {
         'Posts': posts
