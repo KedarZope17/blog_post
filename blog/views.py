@@ -24,7 +24,7 @@ posts = [
         'Title' : 'Life as an customer relationship manager',
         'Content' : 'It is crucial to have a good customer support.\
             I need to analyse the situation, and look for a solution\
-            to team members and handle the client simultaneouly. The\
+           with the respective team members and handle the client simultaneouly. The\
             time plays very critical role here and sometimes the pressure\
             is tough deal.'
     }
@@ -37,4 +37,4 @@ def home(request):
     return render(request, 'blog/home.html', context)
 
 def about(request):
-    return render(request, 'blog/about.html')
+    return render(request, 'blog/about.html', {'Title': 'About'})
