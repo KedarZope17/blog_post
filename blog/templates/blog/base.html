@@ -14,7 +14,7 @@
     {% if Title%}
     <title> Ops Blog - {{Title}}</title>
     {% else %}
-    <title> Ops Blog - Anynonimous </title>
+    <title> Ops Blog</title>
     {% endif %}
 </head>
 <body>
@@ -42,6 +42,13 @@
     <main role="main" class="container">
         <div class="row">
           <div class="col-md-8">
+            {% if messages %}
+              {% for msg in messages %}
+                <div class="alert alert-{{ msg.tags}}">
+                  {{ msg }}
+                </div>
+              {% endfor %}
+            {% endif %}
             {% block content %}{% endblock %}
           </div>
           <div class="col-md-4">
