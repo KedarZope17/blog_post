@@ -26,7 +26,8 @@ posts = [
             I need to analyse the situation, and look for a solution\
            with the respective team members and handle the client simultaneouly. The\
             time plays very critical role here and sometimes the pressure\
-            is tough deal.'
+            is tough deal.',
+        'Date_posted': 'Nov 05, 2023'
     }
 ]
 
