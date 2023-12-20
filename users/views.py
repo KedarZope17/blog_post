@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 import json
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserUpdateform, ProfileUpdateform
 
 def register(request):
     if request.method == 'POST':
@@ -21,4 +21,25 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html') 
+    if request.method == 'POST':
+        u_form = UserUpdateform(request.POST, instance=request.user)
+        p_form = ProfileUpdateform(
+            request.POST,
+            request.FILES, 
+            instance=request.user.profile
+        )
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f"Your account has been updated!")
+            return redirect('profile')
+    else:
+        u_form = UserUpdateform(instance=request.user)
+        p_form = ProfileUpdateform(instance=request.user.profile)
+
+    context = {
+        'u_form' : u_form,
+        'p_form' : p_form
+    }
+    
+    return render(request, 'users/profile.html', context) 
