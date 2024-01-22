@@ -1,2 +1,6 @@
 blog/__pycache__
 blog/migrations
+users/__pycache__
+users/migrations
+blog_post/__pycache__
+blog_post/migrations
